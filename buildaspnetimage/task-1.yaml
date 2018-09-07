@@ -1,0 +1,3 @@
+steps:
+  - id: build_4.7.2-windowsservercore-ltsc2016
+    build: -f 4.7.2-windowsservercore-ltsc2016/runtime/dockerfile -t {{.Values.registerName}}/{{.Values.repositoryName}}:4.7.2-{{.Values.date}}-windowsservercore-ltsc2016 https://github.com/Microsoft/aspnet-docker.git
