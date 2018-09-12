@@ -1,21 +1,19 @@
-step:
+steps:
 - id: build_nano1709
-  build: -f hello-world/nanoserver-1709/Dockerfile -t hello-world:1709 .
+  build: -f hello-world/nanoserver-1709/Dockerfile -t hello-world:1709 https://github.com/Jinhuafei/acrtesting.git
 
 - id: build_nano11803
   build: -f hello-world/nanoserver-1803/Dockerfile -t hello-world:1803 .
 
 - id: build_nanosac2016
-  build: -f hello-world/nanoserver-nanosac2016/Dockerfile -t hello-world:2016 .
+  build: -f hello-world/nanoserver-sac2016/Dockerfile -t hello-world:2016 .
 
 - id: run_nano1709
-  cmd: docker run -t hello-world:1709
+  cmd: hello-world:1709
 
 - id: run_nano11803
-  cmd: docker run -t hello-world:1803
+  cmd: --entrypoint "ping" hello-world-1:1803 -t www.google.com
+  detach: true
 
 - id: run_nanosac2016
-  cmd: docker run -t hello-world:2016
-
-- id: list_images
-  cmd: docker images
+  cmd: --entrypoint "ping" hello-world-1:2016 run_nano11803
