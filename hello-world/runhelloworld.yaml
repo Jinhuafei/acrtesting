@@ -12,8 +12,8 @@ steps:
   cmd: hello-world:1709
 
 - id: run_nano11803
-  cmd: --entrypoint "ping" hello-world-1:1803 -t www.google.com
+  cmd: --entrypoint "ping" hello-world:1803 -t www.google.com
   detach: true
 
 - id: run_nanosac2016
-  cmd: --entrypoint "ping" hello-world-1:2016 run_nano11803
+  cmd: --entrypoint "ping" hello-world:2016 run_nano11803
